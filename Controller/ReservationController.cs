@@ -49,13 +49,13 @@ namespace TrainReservation.Controller
                     YerlesimAyrinti yerlesimAyrinti = new YerlesimAyrinti(vagon.Ad, vagon.RezerveEdilebilirKoltukSayisi);  //her iterasyonda rezervasyon istenilen koltuk sayısı ile vagondaki boş koltuk sayısını karşılaştırıp sonuca göre gerekli işlem yapıyorum. Böylece her iterasyon için gerekli koltuk miktarını elde ediyorum
                     rezervasyonCevap.YerlesimAyrinti.Add(yerlesimAyrinti);                                                      
                 }
-                else if(rezervasyonIstek.RezervasyonYapilacakKisiSayisi < vagon.RezerveEdilebilirKoltukSayisi)
+                else
                 {
                     YerlesimAyrinti yerlesimAyrinti = new YerlesimAyrinti(vagon.Ad, rezervasyonIstek.RezervasyonYapilacakKisiSayisi);
                     rezervasyonCevap.YerlesimAyrinti.Add(yerlesimAyrinti);
+                    return rezervasyonCevap;
                 }
             }
-
             return rezervasyonCevap;
         }
     }
